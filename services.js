@@ -26,7 +26,7 @@ const getWhatsappMsg = (message) => {
 
 const sendWhatsappMessage = async (body) => {
   try {
-    console.log("body is " , body);
+    // console.log("body is " , body);
     const whatsappToken = process.env.WHATSAPP_ACCESS_TOKEN;
     const response = await fetch(process.env.WHATSAPP_URL, {
       method: "POST",
