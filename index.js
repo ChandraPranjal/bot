@@ -31,6 +31,17 @@ app.get("/webhook", (req, res) => {
   } else res.sendStatus(400);
 });
 
+app.post("/webhook",(req,res)=>{
+    const {entry} = req.body;
+    const {changes} = entry;
+    const {messages} = changes;
+    const {text} = messages;
+    console.log(text.body);
+
+    res.status(200).json("Aur beta ji");
+
+})
+
 app.listen(PORT || 5000, () => {
   console.log(`Server running on PORT : ${PORT} `);
 });
