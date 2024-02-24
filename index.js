@@ -4,7 +4,7 @@ const app = express();
 require("dotenv").config({});
 const { getWhatsappMsg, administrator_chatbot } = require("./services");
 
-app.use(bodyParser())
+// app.use(bodyParser())
 app.use(bodyParser.urlencoded());
 
 const PORT = process.env.PORT;

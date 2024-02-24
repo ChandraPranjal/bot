@@ -75,6 +75,43 @@ const administrator_chatbot = async (text, number, messageId, name) => {
   }
 };
 
+const buttonReply_Message = (number, options, body, footer, messageId) => {
+  const buttons = options.map((option, idx) => {
+    return {
+      type: "reply",
+      reply: {
+        id: `_btn_${idx}`,
+        title: option,
+      },
+    };
+  });
+
+  const data = {
+    messaging_product: "whatsapp",
+    recipient_type: "individual",
+    to: number,
+    type: "interactive",
+    interactive: {
+      type: "button",
+      body: {
+        text: body,
+      },
+      footer: {
+        text: footer,
+      },
+      action: {
+        buttons: buttons,
+      },
+    },
+  };
+  return data;
+};
+
+
+const list_reply_Message = ()=>{
+
+}
+
 module.exports = {
   getWhatsappMsg,
   sendWhatsappMessage,
