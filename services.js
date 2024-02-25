@@ -211,13 +211,11 @@ const markMessagesAsRead = (incoming_message_id) => {
 const administrator_chatbot = async (text, number, messageId, name) => {
   try {
     // const lowercase_text = text.toLowerCase();
-    const data = text_message(
-      number,
-      text
-    );
+    const data = text_message(number, text);
     // await sendWhatsappMessage(data);
     const list = [];
     if (text === "WishHub") {
+      await sendWhatsappMessage("Yes WishHub");
       const body = "Hello Would you like add items to inventory?";
       const footer = "Good Luck";
       const options = [" ", " "];
@@ -234,11 +232,15 @@ const administrator_chatbot = async (text, number, messageId, name) => {
         messageId,
         "🧐"
       );
-      list.push(replyReaction);
-      list.push(replyButtonData);
+
+      await sendWhatsappMessage(replyButtonData);
+      await sendWhatsappMessage(replyReaction);
+
+      // list.push(replyReaction);
+      // list.push(replyButtonData);
     }
 
-    for (let item in list) await sendWhatsappMessage(item);
+    // for (let item in list) await sendWhatsappMessage(item);
   } catch (error) {
     console.log("Error in administrator_chatbot", error);
   }
