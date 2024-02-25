@@ -233,11 +233,12 @@ const administrator_chatbot = async (text, number, messageId, name) => {
         "🧐"
       );
 
-      await sendWhatsappMessage(replyButtonData);
-      await sendWhatsappMessage(replyReaction);
+      // await sendWhatsappMessage(replyButtonData);
+      // await sendWhatsappMessage(replyReaction);
 
-      // list.push(replyReaction);
-      // list.push(replyButtonData);
+      list.push(replyReaction);
+      list.push(replyButtonData);
+      for (let item in list) await sendWhatsappMessage(item);
     } else {
       const lowercase_text = text.toLowerCase();
       const data = text_message(number, lowercase_text);
