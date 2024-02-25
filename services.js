@@ -215,7 +215,7 @@ const administrator_chatbot = async (text, number, messageId, name) => {
     // await sendWhatsappMessage(data);
     const list = [];
     if (text === "WishHub") {
-      await sendWhatsappMessage("Yes WishHub");
+      await sendWhatsappMessage(text_message(number,"Yes WishHub"));
       const body = "Hello Would you like add items to inventory?";
       const footer = "Good Luck";
       const options = [" ", " "];
