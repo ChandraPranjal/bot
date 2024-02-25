@@ -238,7 +238,7 @@ const administrator_chatbot = async (text, number, messageId, name) => {
 
       list.push(replyReaction);
       list.push(replyButtonData);
-      for (let item in list) await sendWhatsappMessage(item);
+      for (let item of list) await sendWhatsappMessage(item);
     } else {
       const lowercase_text = text.toLowerCase();
       const data = text_message(number, lowercase_text);
