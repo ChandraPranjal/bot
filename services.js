@@ -215,25 +215,25 @@ const administrator_chatbot = async (text, number, messageId, name) => {
     // await sendWhatsappMessage(data);
     const list = [];
     if (text === "WishHub") {
-      await sendWhatsappMessage(text_message(number, "Yes WishHub"));
-      // const body = "Hello Would you like add items to inventory?";
-      // const footer = "Good Luck";
-      // const options = [" ", " "];
-      // const replyButtonData = buttonReply_Message(
-      //   number,
-      //   options,
-      //   body,
-      //   footer,
-      //   "sed1",
-      //   messageId
-      // );
+      // await sendWhatsappMessage(text_message(number, "Yes WishHub"));
+      const body = "Hello Would you like add items to inventory?";
+      const footer = "Good Luck";
+      const options = ["Yes", "No"];
+      const replyButtonData = buttonReply_Message(
+        number,
+        options,
+        body,
+        footer,
+        "sed1",
+        messageId
+      );
       // const replyReaction = sendReplyWithReactionMessage(
       //   number,
       //   messageId,
       //   "🧐"
       // );
 
-      // await sendWhatsappMessage(replyButtonData);
+      await sendWhatsappMessage(replyButtonData);
       // await sendWhatsappMessage(replyReaction);
 
       // list.push(replyReaction);
