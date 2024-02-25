@@ -247,10 +247,10 @@ const administrator_chatbot = async (text, number, messageId, name) => {
       list.push(replyReaction);
       list.push(replyButtonData);
     } else if (text === "Services") {
-      body = "Services provided by us are";
-      footer = "Thanks for trusting us";
-      options = ["Update Inventory", "Chatbot", "Update Status"];
-      header = "hola"
+      const body = "Services provided by us are";
+      const footer = "Thanks for trusting us";
+      const options = ["Update Inventory", "Chatbot", "Update Status"];
+      const header = "hola"
       listReplyData = list_reply_Message(
         number,
         options,
