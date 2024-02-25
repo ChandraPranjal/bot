@@ -251,7 +251,7 @@ const administrator_chatbot = async (text, number, messageId, name) => {
       const footer = "Thanks for trusting us";
       const options = ["Update Inventory", "Chatbot", "Update Status"];
       const header = "hola"
-      listReplyData = list_reply_Message(
+      const listReplyData = list_reply_Message(
         number,
         options,
         header,
@@ -259,13 +259,13 @@ const administrator_chatbot = async (text, number, messageId, name) => {
         footer,
         messageId
       );
-      stickerReplyData = sticker_message(
+      const stickerReplyData = sticker_message(
         number,
         stickers_ids.dog_suit,
         messageId
       );
 
-      const list = [];
+      // const list = [];
       list.push(listReplyData);
       list.push(stickerReplyData);
     } else {
