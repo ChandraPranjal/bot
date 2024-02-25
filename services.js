@@ -227,14 +227,14 @@ const administrator_chatbot = async (text, number, messageId, name) => {
         "sed1",
         messageId
       );
-      // const replyReaction = sendReplyWithReactionMessage(
-      //   number,
-      //   messageId,
-      //   "🧐"
-      // );
+      const replyReaction = sendReplyWithReactionMessage(
+        number,
+        messageId,
+        "🧐"
+      );
 
       await sendWhatsappMessage(replyButtonData);
-      // await sendWhatsappMessage(replyReaction);
+      await sendWhatsappMessage(replyReaction);
 
       // list.push(replyReaction);
       // list.push(replyButtonData);
