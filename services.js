@@ -235,7 +235,7 @@ const administrator_chatbot = async (text, number, messageId, name) => {
         "🧐"
       );
       list.push(replyReaction);
-      list.splice(replyButtonData);
+      list.push(replyButtonData);
     }
 
     for (let item in list) await sendWhatsappMessage(item);
