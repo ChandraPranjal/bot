@@ -168,7 +168,7 @@ const sticker_message = (number, sticker_id) => {
   return data;
 };
 
-const sendReplyWithReactionMessage = (number, msg_id, emoji) => {
+const sendReplyWithReactionMessage = (number, message_id, emoji) => {
   const data = {
     messaging_product: "whatsapp",
     recipient_type: "individual",
@@ -211,10 +211,10 @@ const markMessagesAsRead = (incoming_message_id) => {
 const administrator_chatbot = async (text, number, messageId, name) => {
   try {
     // const lowercase_text = text.toLowerCase();
-    // const data = text_message(
-    //   number,
-    //   `Hello from WhishHub's Bot ->${lowercase_text} `
-    // );
+    const data = text_message(
+      number,
+      text
+    );
     // await sendWhatsappMessage(data);
     const list = [];
     if (text === "WishHub") {
