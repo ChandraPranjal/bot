@@ -1,3 +1,4 @@
+const { stickers_ids } = require("./constants");
 const getWhatsappMsg = (message) => {
   try {
     const { type } = message;
@@ -45,7 +46,7 @@ const sendWhatsappMessage = async (body) => {
   }
 };
 
-const text_message = (number, text) => {
+const text_message = (number, text, memessageId) => {
   try {
     const data = {
       messaging_product: "whatsapp",
@@ -95,7 +96,14 @@ const buttonReply_Message = (number, options, body, footer, messageId) => {
   return data;
 };
 
-const list_reply_Message = (number, options, header, body, footer) => {
+const list_reply_Message = (
+  number,
+  options,
+  header,
+  body,
+  footer,
+  messageId
+) => {
   const rows = options.map((option, index) => {
     return {
       id: `_list_${index}_`,
@@ -140,7 +148,7 @@ const list_reply_Message = (number, options, header, body, footer) => {
   return data;
 };
 
-const document_Message = (number, url, caption, filename) => {
+const document_Message = (number, url, caption, filename, messageId) => {
   const data = {
     messaging_product: "whatsapp",
     recipient_type: "individual",
@@ -155,7 +163,7 @@ const document_Message = (number, url, caption, filename) => {
   return data;
 };
 
-const sticker_message = (number, sticker_id) => {
+const sticker_message = (number, sticker_id, messageId) => {
   const data = {
     messaging_product: "whatsapp",
     recipient_type: "individual",
@@ -238,12 +246,33 @@ const administrator_chatbot = async (text, number, messageId, name) => {
 
       list.push(replyReaction);
       list.push(replyButtonData);
-      for (let item of list) await sendWhatsappMessage(item);
+    } else if (text === "Services") {
+      body = "Services provided by us are";
+      footer = "Thanks for trusting us";
+      options = ["Update Inventory", "Chatbot", "Update Status"];
+      listReplyData = list_reply_Message(
+        number,
+        options,
+        header,
+        body,
+        footer,
+        messageId
+      );
+      stickerReplyData = sticker_message(
+        number,
+        stickers_ids.dog_suit,
+        messageId
+      );
+
+      const list = [];
+      list.push(listReplyData);
+      list.push(stickerReplyData);
     } else {
       const lowercase_text = text.toLowerCase();
       const data = text_message(number, lowercase_text);
       await sendWhatsappMessage(data);
     }
+    for (let item of list) await sendWhatsappMessage(item);
     // for (let item in list) await sendWhatsappMessage(item);
   } catch (error) {
     console.log("Error in administrator_chatbot", error);
