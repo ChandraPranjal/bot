@@ -222,6 +222,8 @@ const administrator_chatbot = async (text, number, messageId, name) => {
     const data = text_message(number, text);
     // await sendWhatsappMessage(data);
     const list = [];
+    const markMessagesAsReadData = markMessagesAsRead(messageId);
+    list.push(markMessagesAsRead);
     if (text === "WishHub") {
       // await sendWhatsappMessage(text_message(number, "Yes WishHub"));
       const body = `Hello ${name}, would you like to add items to inventory?`;
@@ -250,7 +252,7 @@ const administrator_chatbot = async (text, number, messageId, name) => {
       const body = "Services provided by us are";
       const footer = "Thanks for trusting us";
       const options = ["Update Inventory", "Chatbot", "Update Status"];
-      const header = "hola"
+      const header = "hola";
       const listReplyData = list_reply_Message(
         number,
         options,
